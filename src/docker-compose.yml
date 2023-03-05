@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+
+  publisher:
+    image: ${DOCKER_REGISTRY-}publisher
+    build:
+      context: .
+      dockerfile: Apps/Publisher/Dockerfile
